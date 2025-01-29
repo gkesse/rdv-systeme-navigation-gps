@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.5.0)
+project(rdv_gps VERSION 0.1.0 LANGUAGES C CXX)
+include_directories(${CMAKE_HOME_DIRECTORY})
+add_subdirectory(track_generator)
+add_subdirectory(base)
