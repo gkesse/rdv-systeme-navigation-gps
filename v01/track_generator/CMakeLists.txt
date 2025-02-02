@@ -1,4 +1,15 @@
 project(track_generator)
-find_package(gflags REQUIRED)
-add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} gflags base)
+
+set(SRC
+    main.cpp
+    rdv_track_generator.cpp
+    rdv_track_generator.hpp
+)
+
+add_executable(${PROJECT_NAME} ${SRC})
+
+target_link_libraries(${PROJECT_NAME}
+    gflags
+    base
+    kml
+)

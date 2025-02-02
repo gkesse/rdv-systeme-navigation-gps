@@ -1,8 +1,11 @@
 {
   "cmake.sourceDirectory": "${workspaceFolder}/v01",
-  "cmake.configureArgs": ["-DRDV_USE_PCH=ON", "-DRDV_USE_PPROF=ON"],
+  "cmake.configureArgs": ["-DDEBUG=1"],
   "cmake.debugConfig": {
-    "args": ["-inputDir=mon_input_dir", "-outputDir="]
+    "args": [
+      "-inputDir=/mnt/c/dev/pratique/rdv-systeme-navigation-gps/github/organicmaps/data/test_data/kml",
+      "-outputDir=mon_ouput_dir"
+    ]
   },
   "files.associations": {
     "*.page-template": "vue",
@@ -85,6 +88,15 @@
     "typeindex": "cpp",
     "typeinfo": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "csetjmp": "cpp",
+    "coroutine": "cpp",
+    "slist": "cpp",
+    "*.ipp": "cpp",
+    "hash_map": "cpp",
+    "hash_set": "cpp",
+    "forward_list": "cpp",
+    "scoped_allocator": "cpp",
+    "rope": "cpp"
   }
 }
