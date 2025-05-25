@@ -1,0 +1,8 @@
+{
+    "cmake.environment": {
+        "PATH": "C:/tools/Qt/6.9.0/msvc2022_64/bin"
+    },
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
