@@ -1,7 +1,12 @@
-#include <iostream>
+#include <QApplication>
+#include <QWidget>
 
 int main(int argc, char **argv)
 {
-    std::cout << "[Info]:Demarrage de l'application.\n";
-    return 0;
+    QApplication app(argc, argv);
+    QWidget widget;
+    widget.setWindowTitle("ReadyGPS | Système de navigation par GPS");
+    widget.resize(400, 300);
+    widget.show();
+    return app.exec();
 }
