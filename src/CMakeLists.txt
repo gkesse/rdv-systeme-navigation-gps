@@ -14,6 +14,7 @@ find_package(Qt6 REQUIRED COMPONENTS
 
 add_executable(${PROJECT_NAME}
     main.cpp
+    cMainWindow.cpp
 )
 
 target_link_libraries (${PROJECT_NAME}

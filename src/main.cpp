@@ -1,12 +1,10 @@
 #include <QApplication>
-#include <QWidget>
+#include "cMainWindow.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    QWidget widget;
-    widget.setWindowTitle("ReadyGPS | Système de navigation par GPS");
-    widget.resize(400, 300);
-    widget.show();
+    cMainWindow mainWindow;
+    mainWindow.show();
     return app.exec();
 }
