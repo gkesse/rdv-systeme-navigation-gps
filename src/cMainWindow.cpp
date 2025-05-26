@@ -1,16 +1,12 @@
 #include "cMainWindow.h"
 #include "cPopupMenuHolder.h"
+#include "cDrawWidget.h"
 #include <QToolBar>
 #include <QToolButton>
 #include <QMenu>
 #include <QMenuBar>
 #include <functional>
 #include <windows.h>
-
-#ifdef OMIM_OS_WINDOWS
-#define IDM_ABOUT_DIALOG 1001
-#define IDM_PREFERENCES_DIALOG 1002
-#endif
 
 struct Hotkey
 {
@@ -28,6 +24,8 @@ cMainWindow::cMainWindow(QWidget *parent)
     setWindowIcon(QIcon(":/ui/logo.png"));
     resize(400, 300);
     createToolBar();
+    m_pDrawWidget = new cDrawWidget(this);
+    setCentralWidget(m_pDrawWidget);
 
 #ifndef OMIM_OS_WINDOWS
     QMenu *helpMenu = new QMenu(tr("Help"), this);

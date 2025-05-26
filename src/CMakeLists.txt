@@ -30,6 +30,7 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS
     Widgets
+    OpenGLWidgets
 )
 
 qt6_add_resources(RES_SOURCES
@@ -40,9 +41,12 @@ add_executable(${PROJECT_NAME}
     main.cpp
     cMainWindow.cpp
     cPopupMenuHolder.cpp
+    cMapWidget.cpp
+    cDrawWidget.cpp
     ${RES_SOURCES}
 )
 
 target_link_libraries (${PROJECT_NAME}
     Qt6::Widgets
+    Qt6::OpenGLWidgets
 )

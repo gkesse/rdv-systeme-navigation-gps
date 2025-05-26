@@ -2,6 +2,8 @@
 
 #include <QMainWindow>
 
+class cDrawWidget;
+
 class cMainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -78,4 +80,7 @@ public Q_SLOTS:
 
 private:
     void createToolBar();
+
+private:
+    cDrawWidget *m_pDrawWidget;
 };
