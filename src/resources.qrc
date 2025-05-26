@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/navig64">
+        <file alias="subway.png">res/img/subway.png</file>
+        <file alias="isolines.png">res/img/isolines.png</file>
+        <file alias="layers.png">res/img/layers.png</file>
+        <file alias="bookmark.png">res/img/bookmark.png</file>
+        <file alias="point-finish.png">res/img/point-finish.png</file>
+        <file alias="point-intermediate.png">res/img/point-intermediate.png</file>
+        <file alias="point-start.png">res/img/point-start.png</file>
+        <file alias="routing.png">res/img/routing.png</file>
+        <file alias="clear-route.png">res/img/clear-route.png</file>
+        <file alias="settings-routing.png">res/img/settings-routing.png</file>
+        <file alias="select.png">res/img/select.png</file>
+        <file alias="selectmode.png">res/img/selectmode.png</file>
+        <file alias="city-boundaries.png">res/img/city-boundaries.png</file>
+        <file alias="city-roads.png">res/img/city-roads.png</file>
+        <file alias="test.png">res/img/test.png</file>
+        <file alias="borders-selection.png">res/img/borders-selection.png</file>
+        <file alias="clear.png">res/img/clear.png</file>
+        <file alias="search.png">res/img/search.png</file>
+        <file alias="ruler.png">res/img/ruler.png</file>
+        <file alias="location.png">res/img/location.png</file>
+        <file alias="run.png">res/img/run.png</file>
+        <file alias="geom.png">res/img/geom.png</file>
+        <file alias="bug.png">res/img/bug.png</file>
+        <file alias="chart.png">res/img/chart.png</file>
+        <file alias="phonepack.png">res/img/phonepack.png</file>
+        <file alias="download.png">res/img/download.png</file>
+    </qresource>
+</RCC>
