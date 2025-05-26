@@ -71,6 +71,10 @@ public Q_SLOTS:
     void OnRunTests();
     void OnBuildPhonePackage();
     void ShowUpdateDialog();
+    void OnLoginMenuItem();
+    void OnUploadEditsMenuItem();
+    void OnPreferences();
+    void OnAbout();
 
 private:
     void createToolBar();

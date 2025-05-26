@@ -27,4 +27,7 @@
         <file alias="phonepack.png">res/img/phonepack.png</file>
         <file alias="download.png">res/img/download.png</file>
     </qresource>
+    <qresource prefix="/ui">
+        <file alias="logo.png">res/img/logo.png</file>
+    </qresource>
 </RCC>

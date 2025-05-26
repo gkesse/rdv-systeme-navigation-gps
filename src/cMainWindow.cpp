@@ -2,7 +2,15 @@
 #include "cPopupMenuHolder.h"
 #include <QToolBar>
 #include <QToolButton>
+#include <QMenu>
+#include <QMenuBar>
 #include <functional>
+#include <windows.h>
+
+#ifdef OMIM_OS_WINDOWS
+#define IDM_ABOUT_DIALOG 1001
+#define IDM_PREFERENCES_DIALOG 1002
+#endif
 
 struct Hotkey
 {
@@ -17,8 +25,19 @@ cMainWindow::cMainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     setWindowTitle("ReadyGPS | Système de navigation par GPS");
+    setWindowIcon(QIcon(":/ui/logo.png"));
     resize(400, 300);
     createToolBar();
+
+#ifndef OMIM_OS_WINDOWS
+    QMenu *helpMenu = new QMenu(tr("Help"), this);
+    menuBar()->addMenu(helpMenu);
+    helpMenu->addAction(tr("OpenStreetMap Login"), QKeySequence(Qt::CTRL | Qt::Key_O), this, SLOT(OnLoginMenuItem()));
+    helpMenu->addAction(tr("Upload Edits"), QKeySequence(Qt::CTRL | Qt::Key_U), this, SLOT(OnUploadEditsMenuItem()));
+    helpMenu->addAction(tr("Preferences"), QKeySequence(Qt::CTRL | Qt::Key_P), this, SLOT(OnPreferences()));
+    helpMenu->addAction(tr("About"), QKeySequence(Qt::Key_F1), this, SLOT(OnAbout()));
+    helpMenu->addAction(tr("Exit"), QKeySequence(Qt::CTRL | Qt::Key_Q), this, SLOT(close()));
+#endif
 }
 
 cMainWindow::~cMainWindow()
@@ -108,7 +127,7 @@ void cMainWindow::createToolBar()
     selectionMode->addAction(QIcon(":/navig64/test.png"), tr("Cross MWM segments selection mode"),
                              std::bind(&cMainWindow::OnSwitchSelectionMode, this, SelectionMode::CrossMwmSegments), true);
     selectionMode->addAction(QIcon(":/navig64/borders-selection.png"), tr("MWMs borders selection mode"), this,
-                             SLOT(cMainWindow::OnSwitchMwmsBordersSelectionMode()), true);
+                             SLOT(OnSwitchMwmsBordersSelectionMode()), true);
 
     QToolButton *selectionModeBtn = selectionMode->create();
     selectionModeBtn->setToolTip(tr("Select mode and use RMB to define selection box"));
@@ -298,4 +317,24 @@ void cMainWindow::OnBuildPhonePackage()
 void cMainWindow::ShowUpdateDialog()
 {
     qDebug() << "Show update dialog triggered";
+}
+
+void cMainWindow::OnLoginMenuItem()
+{
+    qDebug() << "Login menu item triggered";
+}
+
+void cMainWindow::OnUploadEditsMenuItem()
+{
+    qDebug() << "Upload edits menu item triggered";
+}
+
+void cMainWindow::OnPreferences()
+{
+    qDebug() << "Preferences triggered";
+}
+
+void cMainWindow::OnAbout()
+{
+    qDebug() << "About triggered";
 }

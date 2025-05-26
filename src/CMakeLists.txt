@@ -22,6 +22,11 @@ if (NO_DOWNLOADER)
   add_definitions(-DNO_DOWNLOADER)
 endif()
 
+option(OMIM_OS_WINDOWS "Force the environment to Windows" OFF)
+if (OMIM_OS_WINDOWS)
+  message(STATUS "Forcing the environment to Windows is enabled")
+  add_definitions(-DOMIM_OS_WINDOWS)
+endif()
 
 find_package(Qt6 REQUIRED COMPONENTS
     Widgets

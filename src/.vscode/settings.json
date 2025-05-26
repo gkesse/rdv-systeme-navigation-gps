@@ -5,6 +5,7 @@
     "cmake.configureArgs": [
         "-DBUILD_DESIGNER=on",
         "-DNO_DOWNLOADER=off",
+        "-DOMIM_OS_WINDOWS=off"
     ],
     "files.associations": {
         "iostream": "cpp",
@@ -84,6 +85,7 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-        "qtoolbutton": "cpp"
+        "qtoolbutton": "cpp",
+        "qmenu": "cpp"
     }
 }
