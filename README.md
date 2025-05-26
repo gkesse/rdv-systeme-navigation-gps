@@ -32,7 +32,7 @@ add_executable(${PROJECT_NAME}
 
 ### Exécution du projet
 
-![Création du projet C++](./img/image-01.png)
+![image-01.png](./img/image-01.png)
 
 
 # Initialisation du projet Qt
@@ -75,7 +75,25 @@ add_executable(${PROJECT_NAME}
 
 ### Exécution du projet
 
-![Initialisation du projet Qt](./img/image-02.png)
+![image-02.png](./img/image-02.png)
+
+# Initialisation de la barre d'outils de la fenêtre principale
+
+Nous utilisons la classe (QToolBar) pour initialiser la barre d'outils de la fenêtre principale (cMainWindow). Par défaut, la barre d'outils présente l'ensemble des outils de navigation dont a besoin un utilisateur final pour bénéficier de l'application. En mode designer, la barre d'outils ajoute l'ensemble des outils nécessaire à un administrateur pour configurer l'application avec la possibilité de créer un forfait téléphonique.
+
+### Exécution du projet
+
+-   La barre d'outils peut être affichée en mode standard (utilisateur), ce qui permet d'accéder à l'ensemble des outils nécessaire pour l'utilisateur final.
+
+![image-03.png](./img/image-03.png)
+
+![image-04.png](./img/image-04.png)
+
+![image-05.png](./img/image-05.png)
+
+-   La barre d'outils peut être affichée en mode designer (administrateur), ce qui permet d'accéder aux outils d'exécution, de calculs de géométrie, de débogage, d'affichage des statistiques, de tests, de création de forfait téléphonique
+
+![image-06.png](./img/image-06.png)
 
 # Contacts
 
