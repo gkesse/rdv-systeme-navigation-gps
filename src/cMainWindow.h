@@ -4,6 +4,14 @@
 
 class cDrawWidget;
 
+template <class T>
+T *CreateBlackControl(QString const &name)
+{
+    T *p = new T(name);
+    p->setStyleSheet("color: navy;");
+    return p;
+}
+
 class cMainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -77,9 +85,14 @@ public Q_SLOTS:
     void OnUploadEditsMenuItem();
     void OnPreferences();
     void OnAbout();
+    void OnDownloadClicked();
+    void OnRetryDownloadClicked();
 
 private:
+    void createDrawWidget();
+    void createMenuBar();
     void createToolBar();
+    void createDownloadButtons();
 
 private:
     cDrawWidget *m_pDrawWidget;

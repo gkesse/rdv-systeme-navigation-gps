@@ -86,6 +86,8 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "qtoolbutton": "cpp",
-        "qmenu": "cpp"
+        "qmenu": "cpp",
+        "qmenubar": "cpp",
+        "qlabel": "cpp"
     }
 }

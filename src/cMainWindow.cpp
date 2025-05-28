@@ -3,8 +3,11 @@
 #include "cDrawWidget.h"
 #include <QToolBar>
 #include <QToolButton>
+#include <QPushButton>
+#include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
+#include <QHBoxLayout>
 #include <functional>
 #include <windows.h>
 
@@ -23,10 +26,25 @@ cMainWindow::cMainWindow(QWidget *parent)
     setWindowTitle("ReadyGPS | Système de navigation par GPS");
     setWindowIcon(QIcon(":/ui/logo.png"));
     resize(400, 300);
+    createDrawWidget();
+    createMenuBar();
     createToolBar();
+    createDownloadButtons();
+}
+
+cMainWindow::~cMainWindow()
+{
+}
+
+void cMainWindow::createDrawWidget()
+{
     m_pDrawWidget = new cDrawWidget(this);
     setCentralWidget(m_pDrawWidget);
+    m_pDrawWidget->setFocus();
+}
 
+void cMainWindow::createMenuBar()
+{
 #ifndef OMIM_OS_WINDOWS
     QMenu *helpMenu = new QMenu(tr("Help"), this);
     menuBar()->addMenu(helpMenu);
@@ -36,10 +54,6 @@ cMainWindow::cMainWindow(QWidget *parent)
     helpMenu->addAction(tr("About"), QKeySequence(Qt::Key_F1), this, SLOT(OnAbout()));
     helpMenu->addAction(tr("Exit"), QKeySequence(Qt::CTRL | Qt::Key_Q), this, SLOT(close()));
 #endif
-}
-
-cMainWindow::~cMainWindow()
-{
 }
 
 void cMainWindow::createToolBar()
@@ -74,6 +88,7 @@ void cMainWindow::createToolBar()
 
     QToolButton *layerBtn = layers->create();
     layerBtn->setIcon(QIcon(":/navig64/layers.png"));
+    layerBtn->setToolTip(tr("Select transport mode"));
     pToolBar->addWidget(layerBtn);
     pToolBar->addSeparator();
 
@@ -208,6 +223,28 @@ void cMainWindow::createToolBar()
     addToolBar(Qt::RightToolBarArea, pToolBar);
 }
 
+void cMainWindow::createDownloadButtons()
+{
+    QHBoxLayout *mainLayout = new QHBoxLayout();
+    bool isVisible = true;
+
+    QPushButton *m_downloadButton = CreateBlackControl<QPushButton>("Download");
+    mainLayout->addWidget(m_downloadButton, 0, Qt::AlignHCenter);
+    m_downloadButton->setVisible(isVisible);
+    connect(m_downloadButton, &QAbstractButton::released, this, &cMainWindow::OnDownloadClicked);
+
+    QPushButton *m_retryButton = CreateBlackControl<QPushButton>("Retry downloading");
+    mainLayout->addWidget(m_retryButton, 0, Qt::AlignHCenter);
+    m_retryButton->setVisible(isVisible);
+    connect(m_retryButton, &QAbstractButton::released, this, &cMainWindow::OnRetryDownloadClicked);
+
+    QLabel *m_downloadingStatusLabel = CreateBlackControl<QLabel>("Downloading");
+    mainLayout->addWidget(m_downloadingStatusLabel, 0, Qt::AlignHCenter);
+    m_downloadingStatusLabel->setVisible(isVisible);
+
+    m_pDrawWidget->setLayout(mainLayout);
+}
+
 void cMainWindow::ShowAll()
 {
     qDebug() << "ShowAll triggered";
@@ -335,4 +372,14 @@ void cMainWindow::OnPreferences()
 void cMainWindow::OnAbout()
 {
     qDebug() << "About triggered";
+}
+
+void cMainWindow::OnDownloadClicked()
+{
+    qDebug() << "Download clicked";
+}
+
+void cMainWindow::OnRetryDownloadClicked()
+{
+    qDebug() << "Retry download clicked";
 }
